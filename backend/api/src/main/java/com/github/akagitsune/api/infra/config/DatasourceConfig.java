@@ -1,0 +1,22 @@
+package com.github.akagitsune.api.infra.config;
+
+import com.zaxxer.hikari.HikariDataSource;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
+
+@Configuration
+@MapperScan(basePackages = "com.github.akagitsune.api.infra.db.dao")
+public class DatasourceConfig {
+
+    @Bean
+    @ConfigurationProperties("spring.datasource.hikari")
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().type(HikariDataSource.class).build();
+    }
+
+}

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api
+  profiles:
+    active: dev
+  datasource:
+    hikari:
+      jdbc-url:
+      username:
+      password:
+      maximum-pool-size: 5
+      minimum-idle: 2
+  data:
+    redis:
+      host:
+      port:
+      password:
+logging:
+  level:
+    root: info
+server:
+  servlet:
+    context-path: /api
+#application:
+#  cors:
+#    allowed_origin:
